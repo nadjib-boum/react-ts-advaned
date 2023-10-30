@@ -15,7 +15,7 @@ type OverrideType<ORIGINAL, OVERRIDED> = Omit<ORIGINAL, keyof OVERRIDED> & OVERR
 
 type ComponentType = ComponentProps<typeof MyButton>;
 
-// typing useState return function
+// ### typing useState return function
 
 type ValType = {
     [key: string]: string
