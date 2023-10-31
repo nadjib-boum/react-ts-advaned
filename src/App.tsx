@@ -1,17 +1,19 @@
-import { useState } from 'react'
-import { ComponentProps } from "react";
+import { ColorBox, ColorOptions } from "./components";
+import { useGameplay } from "./hooks";
 
-const Button = ({ children, ...props }: ComponentProps<"button">) => {
-    return <button {...props}>{ children }</button>
-} 
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const { correctColor, colorOptions } = useGameplay();
 
   return (
-   <main>
-    <Button onClick={() => alert()}>ss</Button>
-   </main>
+   <div className="container" style={{ height: "100vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
+    <div className='game-board' style={{ border: "1px solid #AAA", width: "400px" }}>
+      <ColorBox color={correctColor} />
+      <ColorOptions colors={colorOptions} />
+    </div>
+   </div>
   )
 }
 
